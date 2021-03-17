@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { createServer, Model } from 'miragejs';
+
 import { App } from './App';
 
 createServer({
@@ -13,19 +15,19 @@ createServer({
       transactions: [
         {
           id: 1,
-          title: 'Desenvolvimento de site',
+          title: 'Freelance de website',
           type: 'deposit',
-          category: 'Desenvolvimento',
-          amount: '6000',
+          category: 'Dev',
+          amount: 6000,
           createdAt: new Date('2021-02-12 09:00:00'),
         },
         {
           id: 2,
           title: 'Aluguel',
           type: 'withdraw',
-          category: 'Escritório',
-          amount: '520',
-          createdAt: new Date('2021-02-14 09:00:00'),
+          category: 'Casa',
+          amount: 1100,
+          createdAt: new Date('2021-02-14 11:00:00'),
         },
       ],
     });
@@ -34,7 +36,7 @@ createServer({
   routes() {
     this.namespace = 'api';
 
-    this.get('transactions', () => {
+    this.get('/transactions', () => {
       return this.schema.all('transaction');
     });
 
